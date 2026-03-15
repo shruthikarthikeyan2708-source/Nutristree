@@ -4,48 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nutristree</title>
+
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Welcome to Nutristree</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#recipes">Recipes</a></li>
-                <li><a href="#newsletter">Newsletter</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
     </header>
     <main>
-        <section id="home">
-            <h2>Your source for healthy recipes</h2>
-            <p>Discover nutritious recipes tailored to your lifestyle.</p>
-        </section>
-        <section id="recipes">
-            <h2>Explore Recipes</h2>
-            <input type="text" placeholder="Search recipes...">
-            <div class="recipe-list">
-                <!-- Recipe cards will go here -->
-            </div>
-        </section>
         <section id="newsletter">
-            <h2>Sign up for our Newsletter</h2>
-            <form>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
+            <h2>Subscribe to our Newsletter</h2>
+            <form id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
                 <button type="submit">Subscribe</button>
             </form>
         </section>
+
+        <section id="recipeSearch">
+            <h2>Search for Recipes</h2>
+            <input type="text" id="recipeInput" placeholder="Enter recipe name">
+            <button id="searchButton">Search</button>
+            <div id="searchResults"></div>
+        </section>
+
+        <section id="content">
+            <h2>Our Amazing Recipes</h2>
+            <!-- Recipe cards go here -->
+        </section>
     </main>
+
     <footer>
-        <p>Follow us on social media:</p>
-        <div class="social-sharing">
-            <!-- Social media links -->
+        <p>Follow us on social media</p>
+        <div id="socialMedia">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
         </div>
-        <button id="scrollToTop">Scroll to Top</button>
     </footer>
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Newsletter Form Submission
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Handle subscription logic
+            alert('Subscribed successfully!');
+        });
+
+        // Recipe Search Functionality
+        const searchButton = document.getElementById('searchButton');
+        searchButton.addEventListener('click', () => {
+            const recipe = document.getElementById('recipeInput').value;
+            // Implement search logic here
+            alert('Searching for ' + recipe);
+        });
+    </script>
 </body>
 </html>
